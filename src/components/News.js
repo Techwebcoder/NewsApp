@@ -106,7 +106,7 @@ export class News extends Component {
     return (
       <div className="container my-4">
         <h1 className="text-center" style={{ margin: "35px 0px" }}>
-          NewsMonkey - Top {this.capitalize(this.props.category)} Headlines
+          NewsSphere - Top {this.capitalize(this.props.category)} Headlines
         </h1>
 
         <InfiniteScroll
