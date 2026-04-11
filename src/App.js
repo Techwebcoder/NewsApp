@@ -17,11 +17,34 @@ export default class App extends Component {
     this.setState({ progress: progress });
   };
 
+   constructor() {
+    super();
+    this.state = {
+      mode: "light",
+      progress: 0  
+    }
+  }
+
+  toggleMode = () => {
+
+    document.body.style.transition = "all 0.3s ease";
+    
+    if (this.state.mode === "light") {
+      this.setState({ mode: "dark" });
+      document.body.style.backgroundColor = "#121212";
+      document.body.style.color = "white"; 
+    } else {
+      this.setState({ mode: "light" });
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black"; 
+    }
+  }
+
   render() {
     return (
       <div>
         <Router>
-          <NavBar />
+          <NavBar mode={this.state.mode} toggleMode={this.toggleMode}/>
           <LoadingBar color="#f11946" progress={this.state.progress} />
           <Routes>
             <Route
@@ -34,6 +57,7 @@ export default class App extends Component {
                 key="home"
                   pageSize={this.pageSize}
                   country="us"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -49,6 +73,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="business"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -63,6 +88,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="entertainment"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -77,6 +103,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="general"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -91,6 +118,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="health"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -105,6 +133,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="science"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -119,6 +148,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="sports"
+                  mode={this.state.mode}
                 />
               }
             />
@@ -133,6 +163,7 @@ export default class App extends Component {
                   pageSize={this.pageSize}
                   country="us"
                   category="technology"
+                  mode={this.state.mode}
                 />
               }
             />

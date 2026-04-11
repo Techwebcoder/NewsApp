@@ -104,9 +104,9 @@ export class News extends Component {
 
   render() {
     return (
-      <div className="container my-4">
-        <h1 className="text-center" style={{ margin: "35px 0px" }}>
-          NewsSphere - Top {this.capitalize(this.props.category)} Headlines
+      <div className="container my-4" style={{color: this.props.mode === "dark" ? "white" : "black"}}>
+        <h1 className="text-center" style={{ margin: "70px 0px 20px 0px" }}>
+          StreamNews - Top {this.capitalize(this.props.category)} Headlines
         </h1>
 
         <InfiniteScroll
@@ -139,6 +139,7 @@ export class News extends Component {
                       newsUrl={element.url}
                       author={element.author}
                       date={element.publishedAt}
+                      mode={this.props.mode}
                     />
                   </div>
                 );
